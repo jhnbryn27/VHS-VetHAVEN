@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - VHS Admin</title>
+  <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+  <!-- Top Navbar -->
+  <nav class="top-navbar">
+    <div class="navbar-brand">
+      <span class="logo">🏥</span>
+      <span class="brand-name">VHS Admin</span>
+    </div>
+    <div class="navbar-right">
+      <a href="../web-page/index.html" class="nav-link" target="_blank">
+        <span class="icon">🌐</span>
+        <span>View Website</span>
+      </a>
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="admin-profile" id="adminProfile">
+        <span class="profile-icon">👤</span>
+        <span class="profile-name">Admin User</span>
+        <span class="dropdown-arrow">▼</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="#" class="dropdown-item">Profile Settings</a>
+          <a href="#" class="dropdown-item" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-wrapper">
+    <!-- Compact Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item active" title="Dashboard">
+          <span class="icon">📊</span>
+          <span class="label">Dashboard</span>
+        </a>
+        <a href="accounts.html" class="nav-item" title="Account Management">
+          <span class="icon">👥</span>
+          <span class="label">Accounts</span>
+          <span class="badge-count">3</span>
+        </a>
+        <a href="appointments.html" class="nav-item" title="Appointments">
+          <span class="icon">📅</span>
+          <span class="label">Appointments</span>
+          <span class="badge-count">5</span>
+        </a>
+        <a href="clients-pets.html" class="nav-item" title="Pet Management">
+          <span class="icon">🐾</span>
+          <span class="label">Clients & Pets</span>
+        </a>
+        <a href="website.html" class="nav-item" title="Website Content">
+          <span class="icon">🌐</span>
+          <span class="label">Website</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>Dashboard Overview</h1>
+        <p class="page-subtitle">Welcome back! Here's what's happening today.</p>
+      </div>
+
+      <!-- PRIORITY SECTION: Pending Items -->
+      <section class="priority-section">
+        <h2 class="section-title priority-title">⚠️ Requires Attention</h2>
+        
+        <!-- Pending Registrations -->
+        <div class="priority-card">
+          <div class="card-header">
+            <h3>Pending Registration Accounts</h3>
+            <span class="count-badge urgent">3 Pending</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Contact</th>
+                  <th>Registered</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Carlos Mendoza</td>
+                  <td>carlos.m@email.com</td>
+                  <td>0917 234 5678</td>
+                  <td>Feb 28, 2026</td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAccount(1)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAccount(1)">Reject</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sofia Rodriguez</td>
+                  <td>sofia.r@email.com</td>
+                  <td>0917 345 6789</td>
+                  <td>Feb 27, 2026</td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAccount(2)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAccount(2)">Reject</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Miguel Torres</td>
+                  <td>miguel.t@email.com</td>
+                  <td>0917 456 7890</td>
+                  <td>Feb 27, 2026</td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAccount(3)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAccount(3)">Reject</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pending Appointments -->
+        <div class="priority-card">
+          <div class="card-header">
+            <h3>Pending Appointments</h3>
+            <span class="count-badge urgent">5 Pending</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Owner</th>
+                  <th>Pet</th>
+                  <th>Service</th>
+                  <th>Date & Time</th>
+                  <th>Type</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ana Garcia</td>
+                  <td>Luna (Cat)</td>
+                  <td>Vaccination</td>
+                  <td>Mar 1, 2026 - 10:00 AM</td>
+                  <td><span class="type-badge guest">Guest</span></td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(1)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(1)">Reject</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pedro Santos</td>
+                  <td>Rocky (Dog)</td>
+                  <td>Checkup</td>
+                  <td>Mar 1, 2026 - 2:00 PM</td>
+                  <td><span class="type-badge registered">Registered</span></td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(2)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(2)">Reject</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Isabella Cruz</td>
+                  <td>Coco (Bird)</td>
+                  <td>Consultation</td>
+                  <td>Mar 2, 2026 - 9:00 AM</td>
+                  <td><span class="type-badge guest">Guest</span></td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(3)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(3)">Reject</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ricardo Diaz</td>
+                  <td>Max (Dog)</td>
+                  <td>Grooming</td>
+                  <td>Mar 2, 2026 - 11:00 AM</td>
+                  <td><span class="type-badge registered">Registered</span></td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(4)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(4)">Reject</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Carmen Lopez</td>
+                  <td>Bella (Cat)</td>
+                  <td>Blood Test</td>
+                  <td>Mar 3, 2026 - 3:00 PM</td>
+                  <td><span class="type-badge guest">Guest</span></td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(5)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(5)">Reject</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Summary Stats -->
+      <section class="stats-section">
+        <h2 class="section-title">Quick Overview</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon pending">⏳</div>
+            <div class="stat-info">
+              <div class="stat-value">3</div>
+              <div class="stat-label">Pending Registrations</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon pending">📅</div>
+            <div class="stat-info">
+              <div class="stat-value">5</div>
+              <div class="stat-label">Pending Appointments</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon confirmed">✅</div>
+            <div class="stat-info">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Confirmed Appointments</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-info">
+              <div class="stat-value">186</div>
+              <div class="stat-label">Total Clients</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🐾</div>
+            <div class="stat-info">
+              <div class="stat-value">248</div>
+              <div class="stat-label">Total Pets</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💉</div>
+            <div class="stat-info">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Active Services</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Today's Confirmed Appointments -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Today's Confirmed Appointments</h2>
+          <a href="appointments.html" class="btn-link">View All →</a>
+        </div>
+        <div class="table-wrapper">
+          <table class="compact-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Owner</th>
+                <th>Pet</th>
+                <th>Service</th>
+                <th>Type</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>9:00 AM</td>
+                <td>Maria Santos</td>
+                <td>Fluffy (Cat)</td>
+                <td>Vaccination</td>
+                <td><span class="type-badge registered">Registered</span></td>
+                <td><span class="status-badge completed">Completed</span></td>
+              </tr>
+              <tr>
+                <td>10:00 AM</td>
+                <td>Juan Reyes</td>
+                <td>Max (Dog)</td>
+                <td>Consultation</td>
+                <td><span class="type-badge registered">Registered</span></td>
+                <td><span class="status-badge in-progress">In Progress</span></td>
+              </tr>
+              <tr>
+                <td>11:00 AM</td>
+                <td>Lisa Chen</td>
+                <td>Tweety (Bird)</td>
+                <td>Checkup</td>
+                <td><span class="type-badge guest">Guest</span></td>
+                <td><span class="status-badge confirmed">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td>2:00 PM</td>
+                <td>Anna Cruz</td>
+                <td>Buddy (Dog)</td>
+                <td>Grooming</td>
+                <td><span class="type-badge registered">Registered</span></td>
+                <td><span class="status-badge confirmed">Confirmed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="auth-check.js"></script>
+  <script src="admin-script.js"></script>
+</body>
+</html>

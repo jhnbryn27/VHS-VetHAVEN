@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointments - VHS Admin</title>
+  <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+  <!-- Top Navbar -->
+  <nav class="top-navbar">
+    <div class="navbar-brand">
+      <span class="logo">🏥</span>
+      <span class="brand-name">VHS Admin</span>
+    </div>
+    <div class="navbar-right">
+      <a href="../web-page/index.html" class="nav-link" target="_blank">
+        <span class="icon">🌐</span>
+        <span>View Website</span>
+      </a>
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="admin-profile" id="adminProfile">
+        <span class="profile-icon">👤</span>
+        <span class="profile-name">Admin User</span>
+        <span class="dropdown-arrow">▼</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="#" class="dropdown-item">Profile Settings</a>
+          <a href="#" class="dropdown-item" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-wrapper">
+    <!-- Compact Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <span class="icon">📊</span>
+          <span class="label">Dashboard</span>
+        </a>
+        <a href="accounts.html" class="nav-item">
+          <span class="icon">👥</span>
+          <span class="label">Accounts</span>
+          <span class="badge-count">3</span>
+        </a>
+        <a href="appointments.html" class="nav-item active">
+          <span class="icon">📅</span>
+          <span class="label">Appointments</span>
+          <span class="badge-count">5</span>
+        </a>
+        <a href="clients-pets.html" class="nav-item">
+          <span class="icon">🐾</span>
+          <span class="label">Clients & Pets</span>
+        </a>
+        <a href="website.html" class="nav-item">
+          <span class="icon">🌐</span>
+          <span class="label">Website</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Appointment Management</h1>
+        <p class="page-subtitle">Manage all clinic appointments</p>
+      </div>
+
+      <!-- Pending Appointments -->
+      <section class="priority-section">
+        <h2 class="section-title priority-title">⌛ Pending Appointments</h2>
+        <div class="priority-card">
+          <div class="card-header">
+            <h3>Appointments Awaiting Approval</h3>
+            <span class="count-badge urgent">5 Pending</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Owner Name</th>
+                  <th>Pet Name</th>
+                  <th>Service</th>
+                  <th>Date & Time</th>
+                  <th>Booking Type</th>
+                  <th>Contact</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="pendingAppointmentsTable">
+                <tr data-id="1">
+                  <td>#APT001</td>
+                  <td>Ana Garcia</td>
+                  <td>Luna (Cat)</td>
+                  <td>Vaccination</td>
+                  <td>Mar 1, 2026 - 10:00 AM</td>
+                  <td><span class="type-badge guest">Guest</span></td>
+                  <td>0917 111 2222</td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(1)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(1)">Reject</button>
+                  </td>
+                </tr>
+                <tr data-id="2">
+                  <td>#APT002</td>
+                  <td>Pedro Santos</td>
+                  <td>Rocky (Dog)</td>
+                  <td>Checkup</td>
+                  <td>Mar 1, 2026 - 2:00 PM</td>
+                  <td><span class="type-badge registered">Registered</span></td>
+                  <td>0917 222 3333</td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(2)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(2)">Reject</button>
+                  </td>
+                </tr>
+                <tr data-id="3">
+                  <td>#APT003</td>
+                  <td>Isabella Cruz</td>
+                  <td>Coco (Bird)</td>
+                  <td>Consultation</td>
+                  <td>Mar 2, 2026 - 9:00 AM</td>
+                  <td><span class="type-badge guest">Guest</span></td>
+                  <td>0917 333 4444</td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(3)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(3)">Reject</button>
+                  </td>
+                </tr>
+                <tr data-id="4">
+                  <td>#APT004</td>
+                  <td>Ricardo Diaz</td>
+                  <td>Max (Dog)</td>
+                  <td>Grooming</td>
+                  <td>Mar 2, 2026 - 11:00 AM</td>
+                  <td><span class="type-badge registered">Registered</span></td>
+                  <td>0917 444 5555</td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(4)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(4)">Reject</button>
+                  </td>
+                </tr>
+                <tr data-id="5">
+                  <td>#APT005</td>
+                  <td>Carmen Lopez</td>
+                  <td>Bella (Cat)</td>
+                  <td>Blood Test</td>
+                  <td>Mar 3, 2026 - 3:00 PM</td>
+                  <td><span class="type-badge guest">Guest</span></td>
+                  <td>0917 555 6666</td>
+                  <td>
+                    <button class="btn-approve" onclick="approveAppointment(5)">Approve</button>
+                    <button class="btn-reject" onclick="rejectAppointment(5)">Reject</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Calendar View Section -->
+      <section class="content-section">
+        <div class="calendar-header">
+          <h2 class="section-title">Manage Appointments</h2>
+          <p class="page-subtitle">View and manage all clinic schedules.</p>
+          <div class="calendar-controls">
+            <div class="calendar-nav">
+              <button class="btn-small" onclick="previousMonth()">‹</button>
+              <button class="btn-secondary" onclick="goToToday()">Today</button>
+              <button class="btn-small" onclick="nextMonth()">›</button>
+            </div>
+            <h3 class="calendar-month" id="calendarMonth">January 2026</h3>
+            <div class="calendar-view-toggle">
+              <button class="btn-small active" data-view="month" onclick="setCalendarView('month')">Month</button>
+              <button class="btn-small" data-view="week" onclick="setCalendarView('week')">Week</button>
+              <button class="btn-small" data-view="day" onclick="setCalendarView('day')">Day</button>
+            </div>
+            <div class="calendar-actions">
+              <select class="form-select" id="statusFilter" onchange="filterAppointments()">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="completed">Completed</option>
+              </select>
+              <button class="btn-primary" onclick="addNewAppointment()">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calendar-container">
+          <div class="calendar-grid" id="calendarGrid">
+            <!-- Calendar will be generated dynamically by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- All Appointments -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">All Appointments</h2>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="filter-bar">
+          <input type="date" class="form-input" style="width: auto;" id="filterDate">
+          <select class="form-select" style="width: auto;" id="filterStatus">
+            <option value="all">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+          <select class="form-select" style="width: auto;" id="filterType">
+            <option value="all">All Types</option>
+            <option value="guest">Guest</option>
+            <option value="registered">Registered</option>
+          </select>
+          <input type="search" class="search-input" placeholder="Search appointments..." id="searchAppointments">
+        </div>
+
+        <div class="table-wrapper">
+          <table class="compact-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Date & Time</th>
+                <th>Owner</th>
+                <th>Pet</th>
+                <th>Service</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="allAppointmentsTable">
+              <tr>
+                <td>#APT101</td>
+                <td>Feb 28, 2026 - 9:00 AM</td>
+                <td>Maria Santos</td>
+                <td>Fluffy (Cat)</td>
+                <td>Vaccination</td>
+                <td><span class="type-badge registered">Registered</span></td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td>
+                  <button class="btn-small" onclick="viewAppointment(101)">View</button>
+                  <button class="btn-small" onclick="editAppointment(101)">Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <td>#APT102</td>
+                <td>Feb 28, 2026 - 10:00 AM</td>
+                <td>Juan Reyes</td>
+                <td>Max (Dog)</td>
+                <td>Consultation</td>
+                <td><span class="type-badge registered">Registered</span></td>
+                <td><span class="status-badge in-progress">In Progress</span></td>
+                <td>
+                  <button class="btn-small" onclick="viewAppointment(102)">View</button>
+                  <button class="btn-small" onclick="markComplete(102)">Complete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>#APT103</td>
+                <td>Feb 28, 2026 - 11:00 AM</td>
+                <td>Lisa Chen</td>
+                <td>Tweety (Bird)</td>
+                <td>Checkup</td>
+                <td><span class="type-badge guest">Guest</span></td>
+                <td><span class="status-badge confirmed">Confirmed</span></td>
+                <td>
+                  <button class="btn-small" onclick="viewAppointment(103)">View</button>
+                  <button class="btn-small" onclick="reschedule(103)">Reschedule</button>
+                  <button class="btn-small" onclick="cancelAppointment(103)">Cancel</button>
+                </td>
+              </tr>
+              <tr>
+                <td>#APT104</td>
+                <td>Feb 28, 2026 - 2:00 PM</td>
+                <td>Anna Cruz</td>
+                <td>Buddy (Dog)</td>
+                <td>Grooming</td>
+                <td><span class="type-badge registered">Registered</span></td>
+                <td><span class="status-badge confirmed">Confirmed</span></td>
+                <td>
+                  <button class="btn-small" onclick="viewAppointment(104)">View</button>
+                  <button class="btn-small" onclick="reschedule(104)">Reschedule</button>
+                  <button class="btn-small" onclick="cancelAppointment(104)">Cancel</button>
+                </td>
+              </tr>
+              <tr>
+                <td>#APT105</td>
+                <td>Feb 27, 2026 - 3:00 PM</td>
+                <td>Mark Gonzales</td>
+                <td>Whiskers (Cat)</td>
+                <td>Blood Test</td>
+                <td><span class="type-badge guest">Guest</span></td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td>
+                  <button class="btn-small" onclick="viewAppointment(105)">View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="auth-check.js"></script>
+  <script src="admin-script.js"></script>
+</body>
+</html>
