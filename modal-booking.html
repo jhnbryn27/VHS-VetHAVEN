@@ -1,0 +1,206 @@
+<!-- BOOKING MODAL - Include this in all pages -->
+<div id="modal" class="modal">
+  <div class="modal-content modal-booking">
+    <button class="modal-close" id="closeModal">&times;</button>
+    <h2>Book an Appointment</h2>
+    <p class="modal-subtitle">Fill out the form below to schedule your pet's visit</p>
+    
+    <form id="bookingForm" class="booking-form">
+      <!-- Personal Information Section -->
+      <div class="form-section">
+        <h3 class="section-title">Personal Information</h3>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookLastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="bookLastName" name="lastName" placeholder="Dela Cruz" required>
+          </div>
+          <div class="form-group">
+            <label for="bookFirstName">First Name <span class="required">*</span></label>
+            <input type="text" id="bookFirstName" name="firstName" placeholder="Juan" required>
+          </div>
+          <div class="form-group">
+            <label for="bookMiddleName">Middle Name</label>
+            <input type="text" id="bookMiddleName" name="middleName" placeholder="Santos">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookEmail">Email Address <span class="required">*</span></label>
+            <input type="email" id="bookEmail" name="email" placeholder="example@gmail.com" required>
+            <span class="form-hint">We'll send confirmation to this email</span>
+          </div>
+          <div class="form-group">
+            <label for="bookPhone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="bookPhone" name="phone" placeholder="09XXXXXXXXX" pattern="[0-9]{11}" required>
+            <span class="form-hint">Format: 09XXXXXXXXX (11 digits)</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookAddress">Address <span class="required">*</span></label>
+          <textarea id="bookAddress" name="address" rows="2" placeholder="Street, Barangay, City, Province" required></textarea>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookDob">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="bookDob" name="dob" required>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pet Information Section -->
+      <div class="form-section">
+        <h3 class="section-title">Pet Information</h3>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="petName">Pet Name <span class="required">*</span></label>
+            <input type="text" id="petName" name="petName" placeholder="Fluffy" required>
+          </div>
+          <div class="form-group">
+            <label for="petType">Pet Type <span class="required">*</span></label>
+            <select id="petType" name="petType" required>
+              <option value="">Select pet type</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="rabbit">Rabbit</option>
+              <option value="bird">Bird</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="petBreed">Breed</label>
+            <input type="text" id="petBreed" name="petBreed" placeholder="e.g., Golden Retriever">
+          </div>
+          <div class="form-group">
+            <label for="petAge">Age</label>
+            <input type="text" id="petAge" name="petAge" placeholder="e.g., 2 years">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Appointment Details Section -->
+      <div class="form-section">
+        <h3 class="section-title">Appointment Details</h3>
+        
+        <div class="form-group">
+          <label for="bookService">Service Needed <span class="required">*</span></label>
+          <select id="bookService" name="service" required>
+            <option value="">Select a service</option>
+            <option value="consultation">Vet Consultation</option>
+            <option value="vaccination-canine">Canine Vaccination</option>
+            <option value="vaccination-feline">Feline Vaccination</option>
+            <option value="grooming">Pet Grooming</option>
+            <option value="antirabies">Anti-rabies Vaccination</option>
+            <option value="microchipping">Pet Microchipping</option>
+            <option value="heartworm">Heartworm Prevention</option>
+            <option value="bloodtest">Blood Tests</option>
+            <option value="spay-neuter">Spay & Neuter</option>
+            <option value="online">Online Consultation</option>
+            <option value="homeservice">Home Service Visit</option>
+            <option value="testkits">Test Kits</option>
+            <option value="certificate">Vet Health Certificate</option>
+          </select>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookDate">Preferred Date <span class="required">*</span></label>
+            <input type="date" id="bookDate" name="preferredDate" required>
+            <span class="form-hint">Select your preferred appointment date</span>
+          </div>
+          <div class="form-group">
+            <label for="bookTime">Preferred Time <span class="required">*</span></label>
+            <select id="bookTime" name="preferredTime" required>
+              <option value="">Select time</option>
+              <option value="08:00">8:00 AM</option>
+              <option value="09:00">9:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="17:00">5:00 PM</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="bookNotes">Additional Notes</label>
+          <textarea id="bookNotes" name="notes" rows="3" placeholder="Any special concerns or information we should know about your pet..."></textarea>
+        </div>
+      </div>
+      
+      <!-- Account Security Section (Optional) -->
+      <div class="form-section">
+        <h3 class="section-title">Create Account (Optional)</h3>
+        <p class="section-description">Create an account to easily manage future appointments</p>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookPassword">Password</label>
+            <input type="password" id="bookPassword" name="password" placeholder="Enter password" minlength="8">
+            <span class="form-hint">Minimum 8 characters, at least 1 number and 1 special character</span>
+          </div>
+          <div class="form-group">
+            <label for="bookConfirmPassword">Confirm Password</label>
+            <input type="password" id="bookConfirmPassword" name="confirmPassword" placeholder="Re-enter password">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Terms and Conditions Section -->
+      <div class="terms-section">
+        <div class="terms-scroll">
+          <h4>Terms and Conditions & Data Privacy Policy</h4>
+          
+          <p><strong>Terms and Conditions:</strong></p>
+          <p>By booking an appointment with VHS Animal Wellness Center, you agree to the following terms:</p>
+          <ul>
+            <li>All information provided must be accurate and complete</li>
+            <li>Appointments are subject to availability and confirmation</li>
+            <li>Please arrive 10 minutes before your scheduled appointment</li>
+            <li>Cancellations must be made at least 24 hours in advance</li>
+            <li>Late arrivals may result in rescheduling of your appointment</li>
+            <li>Payment is due at the time of service</li>
+            <li>We reserve the right to refuse service in certain circumstances</li>
+            <li>Emergency cases will be prioritized and may affect scheduled appointments</li>
+          </ul>
+          
+          <p><strong>Data Privacy Policy:</strong></p>
+          <p>We are committed to protecting your privacy and personal information in accordance with the Data Privacy Act of 2012 (Republic Act No. 10173):</p>
+          <ul>
+            <li>Your personal data will be used solely for providing veterinary services and appointment management</li>
+            <li>We collect only necessary information required for quality pet care</li>
+            <li>Your information will not be shared with third parties without your explicit consent</li>
+            <li>All data is stored securely and protected against unauthorized access</li>
+            <li>You have the right to access, correct, or request deletion of your personal information</li>
+            <li>We may contact you via email or phone regarding your appointments and pet care reminders</li>
+            <li>Medical records will be maintained in accordance with veterinary practice standards</li>
+            <li>You may opt-out of promotional communications at any time</li>
+          </ul>
+          
+          <p><strong>Consent:</strong></p>
+          <p>By checking the box below and submitting this form, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions and Data Privacy Policy.</p>
+        </div>
+        
+        <div class="terms-checkbox">
+          <input type="checkbox" id="agreeTermsBooking" name="agreeTerms" required>
+          <label for="agreeTermsBooking">I have read and agree to the Terms and Conditions and Data Privacy Policy <span class="required">*</span></label>
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-submit">Book Appointment</button>
+        <button type="button" class="btn btn-secondary" id="cancelBooking">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
